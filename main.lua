@@ -10,13 +10,12 @@ RAND = math.random
 RAD = math.rad
 
 math.randomseed( os.time() )
-
+JSON = require( "JSON" )
 
 -- Requires ---------------------------
 require("misclua.mathlib")
 require("misclua.helpers")
 require("misclua.coronahelpers")
-json = require( "json" )
 class = require("misclua.30log-global")
 require("classes.Empire")
 require("classes.Planet")
@@ -27,7 +26,18 @@ require("classes.Galaxy")
 
 
 hull = require("classes.Convex_hull")
+-- While we like OOP, there are 
+-- some things that should be loaded
+-- and handled globally, like the table
+-- for our different governments
+government_file = loadjson("./misclua/government_types.json")
+government_type = {}
+government_description = {}
 
+for k,v in pairs(government_file) do
+    table.insert(government_type,k)
+    table.insert(government_description,v[1])
+end
 sceneGroup = display.newGroup()
 
 
