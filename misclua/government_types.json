@@ -1,0 +1,341 @@
+{
+    "Aristocracy": [
+        "Rule by royal birthright."
+    ],
+    "Martial Law": [
+        "Rule by military law."
+    ],
+    "Theocracy": [
+        "Rule by priests and clerics who speak for the deity/ies or who base their decisions on holy writings."
+    ],
+    "Shadow Government": [
+        "Puppet leader controlled by an \"evil\" entity that intends the community or the legitimate government harm."
+    ],
+    "Puppet Government": [
+        "Puppet leader controlled by a foreign government, covertly or openly."
+    ],
+    "Sycophant Government": [
+        "Puppet leader loyal to another, non-evil person who has the good of the community or the betterment of the legitimate government in mind."
+    ],
+    "Syndicate": [
+        "Rule by organized crime mob bosses."
+    ],
+    "Magocracy": [
+        "Rule by a council of mages."
+    ],
+    "Xenocracy": [
+        "Rule by aliens from off planet or a \"monster species \" that shares and controls the planet."
+    ],
+    "Psiocracy": [
+        "Rule by psionic leaders, often with mind control used over the governed."
+    ],
+    "Autocracy": [
+        "Government rests in self-derived, absolute power of hereditary leader."
+    ],
+    "Bureaucracy": [
+        "Rule by departments and bureaucrats."
+    ],
+    "Confederacy": [
+        "Rule by league of social entities, which may or may not be rather diverse."
+    ],
+    "Direct Democracy": [
+        "Citizens vote on everything."
+    ],
+    "Representative Democracy": [
+        "Citizens appoint delegates to make decisions for them."
+    ],
+    "Dictatorship": [
+        "One supreme leader, come to power through the previous government, which has been abolished. Note that one dictatorship can lead to another."
+    ],
+    "Feudality": [
+        "Feudal allegiances between nobles."
+    ],
+    "Feudalism": [
+        "A feudality in which a supreme leader owns the land and grants the use of it to lords; citizens are usually serfs in forced allegiance to their respective lords."
+    ],
+    "Gerontocracy": [
+        "Rule by a council of elders, usually the oldest able people in the community."
+    ],
+    "Chiefdom": [
+        "An absolute ruler who is the eldest able person in the community."
+    ],
+    "Gynococracy": [
+        "Only women can rule."
+    ],
+    "Androcracy": [
+        "Only men can rule."
+    ],
+    "Matriarchy": [
+        "A gynococracy of the eldest women."
+    ],
+    "Patriarchy": [
+        "An androcracy of the eldest men."
+    ],
+    "Hierarchy": [
+        "Rule by levels of responsibility, as in a corporate structure."
+    ],
+    "Religious Hierarchy": [
+        "An hierarchy where priests of increasing power control each level of responsibility."
+    ],
+    "Meritocracy": [
+        "Ruler chosen based on qualifications or required accomplishments. May be a winner or challenger in a contest of ability."
+    ],
+    "Militocracy": [
+        "Military general is in charge, under the rule of civil law."
+    ],
+    "Constitutional Monarchy": [
+        "Rule by a single leader, usually hereditary, checked by a parliamentary body."
+    ],
+    "Oligarchy": [
+        "A few powerful leaders sharing power equally."
+    ],
+    "Star Chamber": [
+        "A secret oligarchy."
+    ],
+    "Unicameral Parliament": [
+        "Part elected delegates, part hereditary nobles, in one great council."
+    ],
+    "Bicameral Parliament": [
+        "One council of elected delegates and another of hereditary nobles."
+    ],
+    "Tricameral Parliament": [
+        "One council of elected delegates, another of hereditary nobles, a third of appointed delegates."
+    ],
+    "Unicameral Republic": [
+        "A council of delegates elected by the citizens."
+    ],
+    "Bicameral Republic": [
+        "Two councils of delegates elected by the citizens, often according to different electoral districts."
+    ],
+    "Tricameral Republic": [
+        "Three councils of delegates elected by the citizens, often according to different electoral districts."
+    ],
+    "Deitocracy": [
+        "Rule by one or more deities. “Oh, look, the natives are bowing to us. See if we have any flashbangs in the ship’s stores, would you?”"
+    ],
+    "Pharoanic Deitocracy": [
+        "Hereditary ruler revered as a deity, usually leading a theocracy or religious hierarchy."
+    ],
+    "Technocracy": [
+        "Rule by those who have superior technology or control of vital technology such as power or water."
+    ],
+    "Feudal Technocracy": [
+        "A supreme leader controls all rights to vital technology and grants licenses to lords. Citizens are often employed or enslaved in the service of their respective lords."
+    ],
+    "Monopoly": [
+        "One individual or group controls vital services, such as food and water, and provides these services to whomever it pleases."
+    ],
+    "Duopoly": [
+        "Two competing individuals or groups that control vital services, often on the verge of war with one another."
+    ],
+    "Polypoly": [
+        "Three or more competing individuals that control vital services, with citizens choosing allegiances."
+    ],
+    "Anarchy": [
+        "No leaders at all."
+    ],
+    "Communism": [
+        "Government plans and controls the economy for all citizens equally; there is no private property."
+    ],
+    "Socialism": [
+        "Government provides for vital services citizens and controls all business; there is no private property beyond basic personal belongings."
+    ],
+    "Limited Socialism": [
+        "Government provides crucial services for citizens; many important businesses are owned by the government."
+    ],
+    "Federation": [
+        "Community is a member of a group of communities that have one set of laws, usually through a republic style of cooperative government."
+    ],
+    "Diarchy": [
+        "Two equal rulers."
+    ],
+    "Dyad": [
+        "A diarchy of two dictators often vying for power."
+    ],
+    "Triumvirate": [
+        "Three equal rulers, who might be required to rule by unanimous consent or by majority rule of two of them."
+    ],
+    "Triad": [
+        "A triumvirate of three dictators often vying for power."
+    ],
+    "Polycentrism": [
+        "Several leaders within a single political organization with each leader being responsible for a different function of government."
+    ],
+    "Modular Governments": [
+        "Each function of government operates independently, with independent budgets and laws over their particular jurisdictions. May lead to contradictory laws and multiple taxes."
+    ],
+    "Layered Government": [
+        "Citizens belong to two or more communities, and each community has a separate government, often in order of “eminent domain.” For example, federal, state, county and city governments all forming laws that govern the same citizen."
+    ],
+    "Fascism": [
+        "Dictatorship with strong central control of socioeconomics, usually accompanied by a secret police."
+    ],
+    "Garrison": [
+        "All citizens are in the military, and military authority is the rule. Tends to coincide with fascism. “Service guarantees citizenship. Want to know more?”"
+    ],
+    "Colonial Hegemony": [
+        "Established and ruled by a foreign government that is physically removed from the community."
+    ],
+    "Imperial Hegemony": [
+        "Ruled by a foreign government that has a military stranglehold on the community."
+    ],
+    "Mobocracy": [
+        "Near chaos."
+    ],
+    "Ochlocracy": [
+        "Rule by the masses, but without votes."
+    ],
+    "Pantisocracy": [
+        "Utopian society where all citizens rule equally, that is, by pleasant consensus."
+    ],
+    "Plutocracy": [
+        "Rule by the wealthy, perhaps by purchase of the throne in an annual auction."
+    ],
+    "Regency": [
+        "Rule by an individual holding power until the rightful ruler can assume power."
+    ],
+    "Satrapy": [
+        "A government of delegates appointed by a foreign government, not unlike having the United Nations run your country."
+    ],
+    "Utopia": [
+        "No government required because everything magically works smoothly and there is no crime."
+    ],
+    "Frontier Government": [
+        "The community is newly formed and the government is still being created, which usually gives considerable leeway to public officials in applying and interpreting the law."
+    ],
+    "Mysticism Government": [
+        "Leaders receive orders from a mystic source. “The computer is your friend, citizen.”"
+    ],
+    "Occupation": [
+        "Foreign military has invaded and holds the community under martial law."
+    ],
+    "Ruins": [
+        "War-ravaged community where leadership has disappeared. Not unlike Mad Max and other post-apocalypse movies."
+    ],
+    "Besieged Community": [
+        "The community is under attack, with survival being the rule of the day."
+    ],
+    "Rasputinian Rule": [
+        "For lack of a better name. Rule by soothsayer."
+    ],
+    "Astrocracy": [
+        "Rulers and laws determined by the positions of the heavenly bodies."
+    ],
+    "Demonocracy": [
+        "Government ruled by a demon. In SF, this usually means that the citizens are cowed by an individual or an alien government who wields fearsomely destructive technology and who may be willing to execute the complete annihilation of the community if displeased."
+    ],
+    "Quearchy": [
+        "Each citizen in turn rules for a select amount of time, perhaps for only a day."
+    ],
+    "Government by Lottery": [
+        "Ruler is chosen by a drawing of names."
+    ],
+    "Government by Contest": [
+        "A regularly scheduled contest determines the ruler. This may be a physical, mental or chance-driven competition, or a combination thereof."
+    ],
+    "Government by Oracle": [
+        "An oracle, perhaps one kept in stasis for years at a time, writes the laws. Not unlike a Mysticism Government, except that the source of the leadership is known to the citizens."
+    ],
+    "Absent Dictator": [
+        "Leader with absolute control has no interest in running the government, causing a power vacuum among his subordinates."
+    ],
+    "Advancement by Combat": [
+        "Leadership and the hierarchy of the governing organization are determined by lethal duels."
+    ],
+    "Company Town": [
+        "The community and many of its stores and businesses are owned by a large merchant company (i.e., a megacorp), and the citizens generally are employees who are prevented from leaving by their debt or physical constraints."
+    ],
+    "Pottersville": [
+        "One powerful businessperson controls the community through mortgages, usury, exploitation and bribery, within the law, without actually being the ruler of the community."
+    ],
+    "Ancient Law": [
+        "The laws were written a long time ago and never change, enforced by an elite group. The ruler merely judges but has no other power."
+    ],
+    "Private Government": [
+        "Each individual private owner of the land rules absolutely on that property."
+    ],
+    "Lunacy": [
+        "Rulers are lunatics and make up the laws seemingly at random."
+    ],
+    "Revolt": [
+        "The government is under attack by its own citizens."
+    ],
+    "Civil War": [
+        "Two or more governments are violently vying for control; citizens take up sides."
+    ],
+    "Impotent Leader": [
+        "Leader makes laws, but no one enforces the laws, either because they cannot be enforced or no one chooses to enforce them."
+    ],
+    "Machiavellianism": [
+        "Evil overlord bends and corrupts everything to his will, usually through fear and intimidation."
+    ],
+    "Orwellianism": [
+        "Secret thought police and constant scrying, which support an oppressive, fascist state."
+    ],
+    "Police State": [
+        "The Constabulary creates and enforces the law, possibly without trials."
+    ],
+    "Automatocracy": [
+        "Rule by computers and machines. They may or may not be berserk machines."
+    ],
+    "Robocracy": [
+        "Rule by robots with artificial intelligence; may follow the Three Laws of Robotics of Isaac Asimov."
+    ],
+    "Imperial Rule": [
+        "Ruled by an emperor within a large empire of many governments. In Traveller, this of course means the Imperium directly governs the planet."
+    ],
+    "Clans": [
+        "Ruled by family councils in a feudality, where allegiances are drawn along familial relationships."
+    ],
+    "Psi-Puppet": [
+        "A puppet leader who acts under the secret mind-controlling powers of a psionicist."
+    ],
+    "Imaginary Government": [
+        "The citizens believe they have a type government, but the government is incompetent to act or has been removed from power. Leaders may not realize that they hold no power. No one is in actual charge."
+    ],
+    "Illusionary Government": [
+        "The citizens are led to believe that they have a particular type of government, such as a democracy or republic, but in truth, the government is another government system, usually a Star Chamber or oligarchy. The elected leaders may not realize that they have no power."
+    ],
+    "Preprogrammed Government": [
+        "The laws and decisions of the government have been determined in the past and are disclosed at preselected times. Soothsaying may have lead to the preprogramming. The influence of the program may be direct and exposed, or subtle and covert."
+    ],
+    "Psychohistory": [
+        "A preprogrammed government that relies on a mathematical model of large societies. The mathematics of psychohistory always predicts the best course of action for a government to take. Mathematicians rule. However, the traditional problem of psychohistory is that it cannot predict the actions of individuals, which often change the dynamics of society whenever a dictator comes to power."
+    ],
+    "Elected Leader": [
+        "A simple form of democracy where the citizens elect a single leader, who then controls the entire government."
+    ],
+    "Boss": [
+        "Ruled by a leader who is appointed by someone other than the citizens. Usually a government for small groups working on company projects."
+    ],
+    "Syndicracy": [
+        "Ruled by groups that control different types of services and trades, such as a council of trade unions."
+    ],
+    "Pedocracy": [
+        "Rule by scholars."
+    ],
+    "Penal Colony": [
+        "Community is made of criminals and debtors sentenced to work in a colony. Colony leaders are usually part of a colonial hegemony, using the prisoners for slave labor."
+    ],
+    "Exiled Government": [
+        "The rightful government is in exile while a hostile government has taken over. The exile government plots to return the community to its own control once again."
+    ],
+    "Government in Exile": [
+        "The government has left the community but still rules the community. This is often the result of invasion or war."
+    ],
+    "Refugee Camp": [
+        "The citizens have fled thier government in fear, usually by physically leaving the community, and have found themselves without a community of their own. They are either a large homeless community with no government that forages to survive, or are living as guests in another community that may or may not assist with basic survival needs."
+    ],
+    "Slave Camp": [
+        "The government forces the members of the community into forced labor for the financial, political or military gain of the government leaders."
+    ],
+    "Judicial Law": [
+        "The law is set by judges who hear cases. Laws and decisions are based on the results of previous cases."
+    ],
+    "Talmudic Law": [
+        "A form of judicial law, except that the judges not only hear current cases but consider hypothetical situations to create laws before they may be needed."
+    ],
+    "Proprietary Government": [
+        "The government is run by a corporation that owns the community. Citizens themselves are usually the product. Citizens may be grown in vats or be drugged into unconsciousness for most of their lives. Citizens may have an illusionary or imagined government."
+    ]
+}
