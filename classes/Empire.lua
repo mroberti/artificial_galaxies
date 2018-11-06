@@ -8,7 +8,7 @@ local function Select_Random_Government()
 end
 
 function Empire:init(data)
-	self.name = data.name or "Empire "..math.random(1,999)
+	self.name = data.name or namegen.generate("empires")
 	self.government_type,self.governmentdescription = data.government_type,data.government_description or Select_Random_Government()
 end
 

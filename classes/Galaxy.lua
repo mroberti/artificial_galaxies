@@ -45,7 +45,7 @@ function Galaxy:init(data)
 
 	-- Make some species
 	for i=1,self.numberOfSpecies do
-		local tempSpecies = Species:new(CreateName())
+		local tempSpecies = Species:new(CreateSpeciesName())
 		table.insert(self.species,tempSpecies)
 	end
 
@@ -118,19 +118,20 @@ function Galaxy:CreateShips(data)
 	end
 end
 
-function Galaxy:GetAllStarsBelongingToAEmpire(passedEmpireName)
+function Galaxy:GetAllStarsBelongingToAEmpire(empireName)
+	-- print("Attempting to get border....")
 	local result = {}
 	for k,v in pairs(self.stars) do
-		if(v.empireName==passedEmpireName)then
+		if(v.empireName == empireName)then
 			table.insert(result,v)
 		end
 	end
 	return result
 end
 
-function Galaxy:GetBorderForEmpire(passedEmpireName)
+function Galaxy:GetBorderForEmpire(empireName)
 	local myTable2 = {}
-	local starModel = self:GetAllStarsBelongingToAEmpire(passedEmpireName)
+	local starModel = self:GetAllStarsBelongingToAEmpire(empireName)
 	-- We need at least a triangle
 	-- for a shape, otherwise...
 	if(#starModel>2)then
@@ -320,7 +321,6 @@ function Galaxy:Deserialize(filename)
 	for i=1,numberOfEmpires do
 		local myEmpire = Empire:new(data.empires[i])
 		table.insert(self.empires,myEmpire)
-		print("Name "..data.empires[i].name)
 	end
 	print("Number of empires "..#self.empires)
 	-- -- Make a table to hold our stars

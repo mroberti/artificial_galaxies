@@ -142,6 +142,7 @@ function loadjson(filename)
     return JSON:decode(content)
 end
 
+
 function loadtext(filename)
     local f = assert(io.open(filename, "rb"))
     local content = f:read("*all")
@@ -157,38 +158,13 @@ function deleteLastCharacter(str)
   return(str:gsub("[%z\1-\127\194-\244][\128-\191]*$", ""))
 end
 
-function CreateName(type)
-  local result = ""
-  -- Once determined what type, the
-  -- below function will be used to generate
-  -- final name.
-  local function MakeName(myContent)
-    local numberOfPieces = RAND(2,4)
-    for i=1,numberOfPieces do
-      result=result..myContent[RAND(1,#myContent)]
-    end
+function CreateSpeciesName()
+  local name = ""
+  local name_type = {"squirrels","insects","sharks"}
+  for i=1,3 do
+    name = name..namegen.generate_custom(name_type[RAND(1,#name_type)], "$A")  --  Bragluk
   end
 
-  local names = {"insectoid","aquatic","artificiallife","avian","feline","insectoid","lupine","reptilian"}
-  if(type==nil)then
-    type=names[RAND(1,#names)]
-  end
-  for i=1,#names do
-    if(string.lower(type)==names[i])then
-      local myContent = splitstring(loadtext("./names/"..string.lower(type)..".csv"),",")
-      MakeName(myContent)
-      -- Make the first letter uppercase
-      result = firstToUpper(result)
-      local lastChar = string.sub(result,string.len(result), -1)
-      -- Let's check for any whacky characters
-      -- and trim them off
-      if(lastChar=="'" or lastChar=="-")then
-        result = deleteLastCharacter(result)
-      end
-      break
-    end
-  end
-
-
-  return result
+  print(name)
+  return name
 end

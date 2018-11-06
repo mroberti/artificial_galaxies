@@ -6,7 +6,7 @@ function Species:init(name)
 	-- Those are directly from our star object. 
 	-- They can be changed of course.  
 	
-    self.name = name or CreateName()
+    self.name = name or CreateSpeciesName()
     print(name)
     self.type = "Insectoid"
     self.traits = "Greebly, scuttle-ish"

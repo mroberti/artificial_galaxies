@@ -114,8 +114,5 @@ end
 CreateModelStars()
 CreateModelShips()
 print("Galaxy name "..galaxy.species[1].name)
-CreateName()
-for i=1,15 do
-    print(EmpireNameGenerator())
-end
+CreateSpeciesName()
 

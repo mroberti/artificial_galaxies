@@ -10,12 +10,16 @@ RAND = math.random
 RAD = math.rad
 
 math.randomseed( os.time() )
-JSON = require( "JSON" )
+
 
 -- Requires ---------------------------
+math.randomseed(os.time())
+namegen = require("namegen")
+
 require("misclua.mathlib")
 require("misclua.helpers")
 require("misclua.coronahelpers")
+json = require( "json" )
 class = require("misclua.30log-global")
 require("classes.Empire")
 require("classes.Planet")
@@ -25,12 +29,38 @@ require("classes.Ship")
 require("classes.Galaxy")
 
 
+-- local rules = namegen.exhaust_rules("corporations")
+-- local names = namegen.exhaust_set("corporations")
+-- for _, v in pairs(names) do
+--     print(v)
+-- end
+
+
+
 hull = require("classes.Convex_hull")
--- While we like OOP, there are 
--- some things that should be loaded
--- and handled globally, like the table
--- for our different governments
-government_file = loadjson("./misclua/government_types.json")
+
+
+-- Get path for file "data.txt" in the resource directory
+local path = system.pathForFile( "/misclua/government_types.json", system.ResourceDirectory )
+ 
+-- Open the file from the path
+local fh = io.open( path, "r" )
+ 
+if fh then
+    -- File exists; read its contents into a string
+    local contents = fh:read( "*a" )
+    -- print( "Contents of " .. path .. "\n" .. contents )
+    government_file = json.decode(contents)
+end
+ 
+io.close( fh )
+
+
+ 
+-- loadsave.loadTable( government_file, "/misclua/government_types.json" )
+
+
+-- government_file = loadjson2("misclua\\government_types.json")
 government_type = {}
 government_description = {}
 
@@ -87,7 +117,7 @@ end
 
 function CreateModelShips()
     -- Create ships and pass some data
-    print("How big is ships? "..#galaxy.ships)
+    -- print("How big is ships? "..#galaxy.ships)
     for i=1,#galaxy.ships do
         local shipData = {
             name = "Ship "..i,
@@ -157,3 +187,51 @@ CreateModelShips()
 DisplayStars()
 DisplayShips()
 timer.performWithDelay( 10, MoveShips,-1 )
+
+function DisplayBorders()
+    -- Return x location, y location and vertices
+    for i=1,#galaxy.empires do
+        
+        if(galaxy:GetBorderForEmpire(galaxy.empires[i].name)~=nil)then
+            -- Pick the colors
+            local r = RAND(1,10)/10
+            local g = RAND(1,10)/10
+            local b = RAND(1,10)/10
+            local o = display.newPolygon(galaxy:GetBorderForEmpire(galaxy.empires[i].name) )
+            o.strokeWidth = 2
+            o:setStrokeColor( r, g, b, 0.1 )
+            o:setFillColor( r, g, b, 0.25)
+            sceneGroup:insert(o)
+
+            local options = 
+            {
+                --parent = groupObj,
+                text = galaxy.empires[i].name,     
+                x = o.x,
+                y = o.y,
+                width = 100,            --required for multiline and alignment
+                height = 100,           --required for multiline and alignment
+                --          font = "Lato Black",   
+                fontSize = screenH*0.025,
+                align = "center"          --new alignment field
+            }
+            
+            local textObject = display.newText( options )
+            sceneGroup:insert(textObject)
+        end
+    end
+end
+
+for i=1,#galaxy.empires do
+    local tempStar = galaxy.stars[RAND(1,#galaxy.stars)]
+    local distance = RAND(100,screenW*.25)
+    local nearestStars = galaxy:GetClosestStars(distance,tempStar)
+    print("nearestStars "..#nearestStars)
+    if(#nearestStars>2)then
+        for k,v in pairs(nearestStars) do
+            v.empireName = galaxy.empires[i].name
+            -- print("Assigning civ "..galaxy.empires[i].name.." to "..v.name)
+        end
+    end
+end
+DisplayBorders()
