@@ -186,7 +186,7 @@ CreateModelStars()
 CreateModelShips()
 DisplayStars()
 DisplayShips()
-timer.performWithDelay( 10, MoveShips,-1 )
+timer.performWithDelay( 500, MoveShips,-1 )
 
 function DisplayBorders()
     -- Return x location, y location and vertices

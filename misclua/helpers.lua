@@ -71,6 +71,10 @@ function getDistance(objA, objB)
     return math.sqrt( (xDist ^ 2) + (yDist ^ 2) ) 
 end
 
+local function Groove()
+
+end
+
 function print_r ( t )
     local print_r_cache={}
     local function sub_print_r(t,indent)
@@ -148,7 +152,7 @@ function loadtext(filename)
     local content = f:read("*all")
     f:close()
     return content
-end
+end 
 
 function firstToUpper(str)
     return (str:gsub("^%l", string.upper))
@@ -160,11 +164,11 @@ end
 
 function CreateSpeciesName()
   local name = ""
-  local name_type = {"squirrels","insects","sharks"}
-  for i=1,3 do
-    name = name..namegen.generate_custom(name_type[RAND(1,#name_type)], "$A")  --  Bragluk
+  local name_type = {"squirrels","insects","sharks","apes","rats","dogs","bird tweets","slugs"}
+  local selected = name_type[RAND(1,#name_type)]
+  for i=1,RAND(2,3) do
+    selected = name_type[RAND(1,#name_type)]
+    name = name..namegen.generate_custom(selected, "$A")  --  Bragluk
   end
-
-  print(name)
-  return name
+  return firstToUpper(name)
 end

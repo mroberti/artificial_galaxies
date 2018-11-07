@@ -26,6 +26,7 @@ function Galaxy:init(data)
 	self.height = data.height or 1000
 
 	-- First make all stars
+	print("Creating "..self.numberOfStars.." stars...")
 	for i=1,self.numberOfStars do
 		-- Let's pick a 
 		-- random spot on the map and create stars
@@ -33,25 +34,29 @@ function Galaxy:init(data)
 		local tempX = RAND(0,self.width)
 		local tempY = RAND(0,self.height)
 		local star_data = {
-			name = "Star "..i,
+			name = namegen.generate("elf female 2"),
 			x = tempX,
 			y = tempY,
 			empireName = "none"
 		}
 		local myStar = Star:new(star_data)
-
+		-- print("Star name: "..myStar.name.."\t\t\t\tLocation x:"..myStar.x..",y:"..myStar.y)
+		print(string.format("Star name: %s Location x:%d y:%d",myStar.name,myStar.x,myStar.y))
 		table.insert(self.stars,myStar)
 	end
 
 	-- Make some species
+	print("Creating "..self.numberOfSpecies.." species...")
 	for i=1,self.numberOfSpecies do
 		local tempSpecies = Species:new(CreateSpeciesName())
 		table.insert(self.species,tempSpecies)
 	end
 
+	print("Creating "..self.numberOfEmpires.." Empires...")
 	-- Second make empires
 	for i=1,self.numberOfEmpires do
-		local myEmpire = Empire:new("Empire "..i)
+		local myEmpire = Empire:new(namegen.generate("empires"))
+		print("Name: "..myEmpire.name)
 		table.insert(self.empires,myEmpire)
 
 		local diameter = 100
@@ -65,6 +70,7 @@ function Galaxy:init(data)
 	end
 
 	-- Make some ships
+	print("Creating "..data.numberOfShips.." Ships...")
 	local tempShips = {}
 	for i=1,data.numberOfShips do
 		local tempShip = {
@@ -75,7 +81,8 @@ function Galaxy:init(data)
             speed = RAND(1,10),
             heading = RAND(1,360) -- This can change of course if you use ship:changeHeading(starObject or whatever)
         }
-        table.insert(tempShips,tempShip)
+		table.insert(tempShips,tempShip)
+		print(string.format("Ship name: %s dockedAt %s, destination %s, belongs to empire %s",tempShip.name,tempShip.dockedAt.name,tempShip.destination.name,tempShip.empire.name))
 	end
 	self:CreateShips(tempShips)
 end
@@ -271,7 +278,7 @@ function Galaxy:Serialize()
 	for k,v in pairs(self.empires) do
 		table.insert(data.empires,v:Serialize())
 	end
-	 
+ 
 	-- Serialize the stars
 	for k,v in pairs(self.stars) do
 		table.insert(data.stars,v:Serialize())
@@ -283,6 +290,9 @@ function Galaxy:Serialize()
 	end
 	 
 	-- Path for the file to write
+	-- Hmmmm this only works for Corona...I'll 
+	-- look into a plain lua version to serialize 
+	-- output to.
 	local path = system.pathForFile( "saveddata.json", system.DocumentsDirectory )
 	 
 	-- Open the file handle

@@ -5,9 +5,11 @@ function Species:init(name)
 	-- We could use "Barren","Garden","Gas Giant","Poisonous"
 	-- Those are directly from our star object. 
 	-- They can be changed of course.  
-	
+    
     self.name = name or CreateSpeciesName()
-    print(name)
+    print("Name of species: "..self.name)
+    -- print("Species name "..name)
+    -- The below are hardcoded for now...
     self.type = "Insectoid"
     self.traits = "Greebly, scuttle-ish"
     self.preferred_environment = "Barren"

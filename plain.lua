@@ -10,13 +10,13 @@ RAND = math.random
 RAD = math.rad
 -- require'lfs'
 JSON = require( "JSON" )
-math.randomseed( os.time() )
+math.randomseed(os.time())
+namegen = require("namegen")
 
 -- Requires ---------------------------
 require("misclua.mathlib")
 require("misclua.helpers")
 require("misclua.military_unit_name")
-require("misclua.empire_name_generator")
 require("misclua.coronahelpers")
 class = require("misclua.30log-global")
 require("classes.Empire")
@@ -54,7 +54,7 @@ local data= {
     -- hey it's up to you,
     -- Number of empires
     -- minimum distance from another empire
-    numberOfStars = 50,
+    numberOfStars = 20,
     width = screenW,
     height = screenH,
     numberOfEmpires = 3,
@@ -67,10 +67,6 @@ local data= {
 local galaxy = Galaxy:new(data)
 local starModel = {}
 local shipModel = {}
-
-local starView = {}
-local shipView = {}
-
 
 function CreateModelStars()
     -- Run some tests on the galaxy object
@@ -100,7 +96,6 @@ function CreateModelShips()
     end
 end
 
-
 function MoveShips()
     for i=1,#galaxy.ships do
         galaxy.ships[i]:ChangeHeading(galaxy.ships[i].destination)
@@ -113,6 +108,5 @@ end
 
 CreateModelStars()
 CreateModelShips()
-print("Galaxy name "..galaxy.species[1].name)
-CreateSpeciesName()
+-- CreateSpeciesName()
 
