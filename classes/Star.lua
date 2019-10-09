@@ -43,7 +43,7 @@ function Star:init(data)
     self.name = data.name or "Star "..RAND(1,999)
     self.x = data.x or RAND(1,200) 
     self.y = data.y or RAND(1,200)
-    self.empireName = data.empireName or "none"
+    self.empireName = data.empireName or "No affiliation"
     self.planets = {}
     -- Let's create between 3 and 6 planets
     -- print("Created Star: "..self.name.." at "..self.x..","..self.y)

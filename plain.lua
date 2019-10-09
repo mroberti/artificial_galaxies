@@ -14,6 +14,7 @@ math.randomseed(os.time())
 namegen = require("namegen")
 
 -- Requires ---------------------------
+require("misclua.coronahelpers")
 require("misclua.mathlib")
 require("misclua.helpers")
 require("misclua.military_unit_name")
@@ -25,6 +26,7 @@ require("classes.Star")
 require("classes.Species")
 require("classes.Ship")
 require("classes.Galaxy")
+require("classes.Galaxy2")
 hull = require("classes.Convex_hull")
 
 -- While we like OOP, there are 
@@ -109,4 +111,82 @@ end
 CreateModelStars()
 CreateModelShips()
 -- CreateSpeciesName()
+
+function ScanForSerializables2(file)
+
+    local temp1 = SplitString(file,".lua")
+    local temp = SplitString(temp1[1],"\\")
+    local name = temp[#temp]
+    print("name "..name)
+    function file_check(file_name)
+        local file_found=io.open(file_name, "r")    
+        local result = false  
+
+        if file_found==nil then
+            result = false
+        else
+            result = true
+        end
+        return result
+    end
+
+    -- get all lines from a file, returns an empty 
+    -- list/table if the file does not exist
+    function lines_from(file)
+        if not file_exists(file) then return {} end
+        lines = {}
+        for line in io.lines(file) do 
+            lines[#lines + 1] = line
+        end
+        return lines
+    end
+
+    if(file_check(file))then
+        print("Exists "..tostring(file_check(file)))
+        print("File "..file)
+        print("MOyster")        
+    -- Read variables/data/properties from file
+        local variables = {}
+        local methods = {}
+        -- tests the functions above
+        local file = '.\\classes\\Galaxy.lua'
+        local contents = lines_from(file)
+        -- print all line numbers and their contents
+        -- for k,v in pairs(contents) do
+        --   print('line[' .. k .. ']', v)
+        -- end
+        -- for line in (contents..'\n'):gmatch'(.-)\r?\n' do 
+        for k,line in pairs(contents) do
+            -- print("POn")
+            if string.match(line, "Serialize this") then
+                local word1 = SplitString(line,"=")[1]
+                word1 = word1:gsub("%s+", "")
+                local word2 = SplitString(word1,"self.")[2]
+                -- print ("temp"..name.."."..word2.." = "..word1)
+                table.insert(variables,"{Ctrl {Enter}}{Delay 250}"..word2..":int{Delay 100}{Enter}")
+                -- print ("{Ctrl {Enter}}{Delay 250}"..word2..":int{Delay 100}{Enter}")
+            elseif string.match(line, "function "..name..":") then
+                -- print("Ok we found "..line)
+                local word1 = SplitString(line,":")[2]
+                -- print ("temp "..word1)
+                table.insert(methods,"{Ctrl {Shift {Enter}}}{Delay 250}"..word1..":int{Delay 100}{Enter}")
+            end
+        end
+        print("Variables\n------------------")
+        for i=1,#variables do
+            print(variables[i])
+        end
+        print("Methods\n------------------")
+        for i=1,#methods do
+            print(methods[i])
+        end
+    else
+
+    end
+end
+
+ScanForSerializables2(".\\classes\\Galaxy.lua")
+
+-- Check availability of file
+
 

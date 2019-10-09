@@ -35,6 +35,11 @@ function ensurePointsTable( tbl )
    end
 end
 
+function choice(passedTable)
+    local tempNumber = RAND(1,#passedTable)
+    return passedTable[tempNumber]
+end
+
 function getBoundingCentroid( pts )
    pts = ensurePointsTable( pts ) -- EFM change a little
    local xMin, xMax, yMin, yMax = 100000000, -100000000, 100000000, -100000000

@@ -1,6 +1,10 @@
-Galaxy = class("Galaxy")
+require("classes.Empire")
+require("classes.Planet")
+require("classes.Star")
+require("classes.Species")
+Galaxy2 = class("Galaxy2")
 
-function Galaxy:init(data)
+function Galaxy2:init(data)
     -- local data= {
         -- numberOfStars = 50,
         -- width = screenW,
@@ -10,7 +14,7 @@ function Galaxy:init(data)
         -- numberOfSpecies = 3
     -- }
    	-- Make a table to hold our stars
-	self.numberOfStars = data.numberOfStars or 100 --Serialize this
+	self.numberOfStars = data.numberOfStars or 100
 	self.numberOfEmpires = data.numberOfEmpires or 4
 	-- Make sure we have at least as many species as Empires...kinda would suck if we had less...
 	self.numberOfSpecies = data.numberOfSpecies or RAND(self.numberOfEmpires,self.numberOfEmpires+3)
@@ -20,7 +24,7 @@ function Galaxy:init(data)
 	self.species = {}
 
 	-- We're expecting data from the instantiation
-	-- of the Galaxy object, below is what we're
+	-- of the Galaxy2 object, below is what we're
 	-- expecting. 
 	self.width = data.width or 1000
 	self.height = data.height or 1000
@@ -87,7 +91,7 @@ function Galaxy:init(data)
 	self:CreateShips(tempShips)
 end
 
-function Galaxy:CreateShips(data)
+function Galaxy2:CreateShips(data)
     -- Create 25 ships and pass some data
     if(data)then
 	    for i=1,#data do
@@ -125,7 +129,7 @@ function Galaxy:CreateShips(data)
 	end
 end
 
-function Galaxy:GetAllStarsBelongingToAEmpire(empireName)
+function Galaxy2:GetAllStarsBelongingToAEmpire(empireName)
 	-- print("Attempting to get border....")
 	local result = {}
 	for k,v in pairs(self.stars) do
@@ -136,7 +140,7 @@ function Galaxy:GetAllStarsBelongingToAEmpire(empireName)
 	return result
 end
 
-function Galaxy:GetBorderForEmpire(empireName)
+function Galaxy2:GetBorderForEmpire(empireName)
 	local myTable2 = {}
 	local starModel = self:GetAllStarsBelongingToAEmpire(empireName)
 	-- We need at least a triangle
@@ -196,7 +200,7 @@ function Galaxy:GetBorderForEmpire(empireName)
 	end
 end
 
-function Galaxy:Destroy()
+function Galaxy2:Destroy()
 	-- Destroy empires
 	for i=#self.empires,1,-1 do
         table.remove(self.empires, i)
@@ -244,7 +248,7 @@ end
 -- 'x' stars to the source that was passed
 -- If there aren't any within 'x' distance
 -- return nil
-function Galaxy:GetClosestStars(radius,sourceStar)
+function Galaxy2:GetClosestStars(radius,sourceStar)
 	local nearestStars = {}
 	for i=1,#self.stars do
 		local distance = math.getDistance(sourceStar,self.stars[i])
@@ -256,7 +260,7 @@ function Galaxy:GetClosestStars(radius,sourceStar)
 	return nearestStars
 end
 
-function Galaxy:Serialize()
+function Galaxy2:Serialize()
 	-- Begin serializing objects out
 	-- Create a holder table for all 
 	-- our data...
@@ -311,7 +315,7 @@ function Galaxy:Serialize()
 	file = nil
 end
 
-function Galaxy:Deserialize(filename)
+function Galaxy2:Deserialize(filename)
 	self:Destroy()
 	-- Begin serializing objects out
 	local path = system.pathForFile( "saveddata.json", system.DocumentsDirectory)
@@ -337,7 +341,7 @@ function Galaxy:Deserialize(filename)
 	self.numberOfStars = #data["stars"]
 
 	-- We're expecting data from the instantiation
-	-- of the Galaxy object, below is what we're
+	-- of the Galaxy2 object, below is what we're
 	-- expecting. 
 	self.width = data.width or 1000
 	self.height = data.height or 1000
@@ -364,4 +368,4 @@ end
 
 
 --= Return Factory
-return Galaxy
+return Galaxy2

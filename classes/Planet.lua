@@ -5,6 +5,7 @@ function Planet:init(data)
     self.parent_star = data.star_name
     self.name = data.name or "Planet "..RAND(1,999)
     self.environment = data.environmentNumber or RAND(1,#environment) --environment[RAND(1,#environment)]
+    self.species = {}
     -- Debug
     -- print(self.name.." "..self.environment)
 end
