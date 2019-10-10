@@ -12,6 +12,10 @@ RAD = math.rad
 JSON = require( "JSON" )
 math.randomseed(os.time())
 namegen = require("namegen")
+debug = false
+function logger(info)
+	print(info)
+end
 
 -- Requires ---------------------------
 require("misclua.coronahelpers")

@@ -46,12 +46,16 @@ function Star:init(data)
     self.empireName = data.empireName or "No affiliation"
     self.planets = {}
     -- Let's create between 3 and 6 planets
-    -- print("Created Star: "..self.name.." at "..self.x..","..self.y)
+    if(debug)then
+        print("Created Star: "..self.name.." at "..self.x..","..self.y)
+    end
     for i=1,RAND(3,6) do
     	self.planets[i] = Planet:new({
     		name=self.name.." "..ToRomanNumerals(i)
     	})
-    	-- print("Created planet: "..self.planets[i].name.." ".."Environment: "..self.planets[i].environment)
+    	if(debug)then
+            print("Created planet: "..self.planets[i].name.." ".."Environment: "..self.planets[i].environment)
+        end
     end
 end
 

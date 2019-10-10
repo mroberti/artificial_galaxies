@@ -26,7 +26,9 @@ function Galaxy:init(data)
 	self.height = data.height or 1000
 
 	-- First make all stars
-	print("Creating "..self.numberOfStars.." stars...")
+	if(debug)then
+		print("Creating "..self.numberOfStars.." stars...")
+	end
 	for i=1,self.numberOfStars do
 		-- Let's pick a 
 		-- random spot on the map and create stars
@@ -41,22 +43,30 @@ function Galaxy:init(data)
 		}
 		local myStar = Star:new(star_data)
 		-- print("Star name: "..myStar.name.."\t\t\t\tLocation x:"..myStar.x..",y:"..myStar.y)
-		print(string.format("Star name: %s Location x:%d y:%d",myStar.name,myStar.x,myStar.y))
+		if(debug)then
+			print(string.format("Star name: %s Location x:%d y:%d",myStar.name,myStar.x,myStar.y))
+		end
 		table.insert(self.stars,myStar)
 	end
 
 	-- Make some species
-	print("Creating "..self.numberOfSpecies.." species...")
+	if(debug)then
+		print("Creating "..self.numberOfSpecies.." species...")
+	end
 	for i=1,self.numberOfSpecies do
 		local tempSpecies = Species:new(CreateSpeciesName())
 		table.insert(self.species,tempSpecies)
 	end
 
-	print("Creating "..self.numberOfEmpires.." Empires...")
+	if(debug)then
+		print("Creating "..self.numberOfEmpires.." Empires...")
+	end
 	-- Second make empires
 	for i=1,self.numberOfEmpires do
 		local myEmpire = Empire:new(namegen.generate("empires"))
-		print("Name: "..myEmpire.name)
+		if(debug)then
+			print("Name: "..myEmpire.name)
+		end
 		table.insert(self.empires,myEmpire)
 
 		local diameter = 100
@@ -70,7 +80,9 @@ function Galaxy:init(data)
 	end
 
 	-- Make some ships
-	print("Creating "..data.numberOfShips.." Ships...")
+	if(debug)then
+		print("Creating "..data.numberOfShips.." Ships...")
+	end
 	local tempShips = {}
 	for i=1,data.numberOfShips do
 		local tempShip = {
@@ -82,7 +94,9 @@ function Galaxy:init(data)
             heading = RAND(1,360) -- This can change of course if you use ship:changeHeading(starObject or whatever)
         }
 		table.insert(tempShips,tempShip)
-		print(string.format("Ship name: %s dockedAt %s, destination %s, belongs to empire %s",tempShip.name,tempShip.dockedAt.name,tempShip.destination.name,tempShip.empire.name))
+		if(debug)then
+			print(string.format("Ship name: %s dockedAt %s, destination %s, belongs to empire %s",tempShip.name,tempShip.dockedAt.name,tempShip.destination.name,tempShip.empire.name))
+		end
 	end
 	self:CreateShips(tempShips)
 end
@@ -107,7 +121,9 @@ function Galaxy:CreateShips(data)
 	        table.insert(self.ships,myShip)
 	    end
     else
-    	print("We dont got data")
+    	if(debug)then
+    		print("We dont got data")
+    	end
 	    for i=1,RAND(2,5) do
 	        local shipData = {
 	            name = "Ship "..i,
@@ -300,7 +316,9 @@ function Galaxy:Serialize()
 	 
 	if not file then
 	    -- Error occurred; output the cause
-	    print( "File error: " .. errorString )
+	    if(debug)then
+	    	print( "File error: " .. errorString )
+	    end
 	else
 	    -- Write data to file
 	    file:write( json.encode( data ) )
@@ -324,7 +342,9 @@ function Galaxy:Deserialize(filename)
 
 	-- Create empires from serialized
 	-- data
-	print("Number of civs "..#data.empires)
+	if(debug)then
+		print("Number of civs "..#data.empires)
+	end
 
 		-- Make a table to hold empires
 	local numberOfEmpires = #data.empires or 1
@@ -332,7 +352,9 @@ function Galaxy:Deserialize(filename)
 		local myEmpire = Empire:new(data.empires[i])
 		table.insert(self.empires,myEmpire)
 	end
-	print("Number of empires "..#self.empires)
+	if(debug)then
+		print("Number of empires "..#self.empires)
+	end
 	-- -- Make a table to hold our stars
 	self.numberOfStars = #data["stars"]
 
