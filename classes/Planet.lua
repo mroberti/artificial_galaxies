@@ -7,7 +7,9 @@ function Planet:init(data)
     self.environment = data.environmentNumber or RAND(1,#environment) --environment[RAND(1,#environment)]
     self.species = {}
     -- Debug
-    -- print(self.name.." "..self.environment)
+    if(debug)then
+        print(self.name.." "..self.environment)
+    end
 end
 
 function Planet:Serialize()

@@ -41,7 +41,7 @@ hull = require("classes.Convex_hull")
 
 
 -- Get path for file "data.txt" in the resource directory
-local path = system.pathForFile( "/misclua/government_types.json", system.ResourceDirectory )
+local path = system.pathForFile( ".\\misclua.\\government_types.json", system.ResourceDirectory )
  
 -- Open the file from the path
 local fh = io.open( path, "r" )

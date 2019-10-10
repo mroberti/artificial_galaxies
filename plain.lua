@@ -13,8 +13,11 @@ JSON = require( "JSON" )
 math.randomseed(os.time())
 namegen = require("namegen")
 debug = false
-function logger(info)
-	print(info)
+function logger(info,override)
+	-- Override will print regardless of global debug value
+	if(debug or override~=nil)then
+		print(info)
+	end
 end
 
 -- Requires ---------------------------
@@ -190,7 +193,50 @@ function ScanForSerializables2(file)
 end
 
 ScanForSerializables2(".\\classes\\Galaxy.lua")
+function loadjson(filename)
+    local f = assert(io.open(filename, "rb"))
+    local content = f:read("*all")
+    f:close()
+    return JSON:decode(content)
+end
 
--- Check availability of file
+local model = loadjson(".\\AG_modelmdj.mdj")
 
+function print_r ( t )
+    local print_r_cache={}
+    local function sub_print_r(t,indent)
+        if (print_r_cache[tostring(t)]) then
+            print(indent.."*"..tostring(t))
+        else
+            print_r_cache[tostring(t)]=true
+            if (type(t)=="table") then
+                for pos,val in pairs(t) do
+                    if (type(val)=="table") then
+                        print(indent.."["..pos.."] => "..tostring(t).." {")
+                        sub_print_r(val,indent..string.rep(" ",string.len(pos)+4))
+                        print(indent..string.rep(" ",string.len(pos)+3).."}")
+                    elseif (type(val)=="string") then
+                        print(indent.."["..pos..'] => "'..val..'"')
+                    else
+                        print(indent.."["..pos.."] => "..tostring(val))
+                    end
+                end
+            else
+                print(indent..tostring(t))
+            end
+        end
+    end
+    if (type(t)=="table") then
+        print(tostring(t).." {")
+        sub_print_r(t," ")
+        print("}")
+    else
+        sub_print_r(t,"  ")
+    end
+    print()
+end
 
+-- print_r(model)
+
+print("Test "..model._type)
+print("Id "..model._id)
