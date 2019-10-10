@@ -51,7 +51,7 @@ function Star:init(data)
     	self.planets[i] = Planet:new({
     		name=self.name.." "..ToRomanNumerals(i)
     	})
-    	logger("Created planet: "..self.planets[i].name.." ".."Environment: "..self.planets[i].environment,1)
+    	logger("Created planet: "..self.planets[i].name.." ".."Environment: "..self.planets[i].environment)
     end
 end
 

@@ -239,4 +239,39 @@ end
 -- print_r(model)
 
 print("Test "..model._type)
-print("Id "..model._id)
+print("Name "..model.ownedElements[1].ownedElements[2].ownedElements[1].name)
+-- Enumerate?
+
+function EnumerateProperties(tempObject)
+	for i=1,#tempObject.attributes do
+		local name = tempObject.attributes[i].name
+		local _type = tempObject.attributes[i].type
+		print(name..":".._type)
+	end
+	print("---------------------------")
+end
+
+function EnumerateMethods(tempObject)
+	for i=1,#tempObject.operations do
+		print(tempObject.operations[i].name) --..":"..tempObject.operations[i].type)
+	end
+	print("---------------------------")
+end
+
+function EnumerateClasses()
+	for i=1,#model.ownedElements[1].ownedElements[2].ownedElements do
+		local tempObject = model.ownedElements[1].ownedElements[2].ownedElements[i]
+		print("\n\n---------------------------")
+		print("Class "..tempObject.name)
+		print("---------------------------")
+		EnumerateProperties(tempObject)
+		if(tempObject.operations~=nil)then
+			-- print("Size of operations "..#tempObject.operations)
+			EnumerateMethods(tempObject)
+		end
+	end
+end
+
+EnumerateClasses()
+-- print("Prop "..model.ownedElements[1].ownedElements[2].ownedElements[1].attributes[2].name)
+-- print("Type "..model.ownedElements[1].ownedElements[2].ownedElements[1].attributes[2].type)
